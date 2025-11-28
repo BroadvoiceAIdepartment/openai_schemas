@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "incident_start_time": {
+            "type": "string",
+            "description": "The exact date and time when the incident started (ISO 8601 format)"
+        },
+        "incident_duration": {
+            "type": "string",
+            "description": "How long the incident lasted (e.g., '2 hours 15 minutes')"
+        },
+        "incident_description": {
+            "type": "string",
+            "description": "Brief 2-3 word description of the incident type"
+        },
+        "impacting": {
+            "type": "string",
+            "description": "What systems, services, or users were affected (4-5 words max)"
+        },
+        "timeline": {
+            "type": "string",
+            "description": "Chronological sequence of events during the incident with timestamps"
+        },
+        "reason_for_outage": {
+            "type": "string",
+            "description": "Detailed technical description of what caused the incident"
+        },
+        "resolution": {
+            "type": "string",
+            "description": "How the incident was resolved, including root cause analysis"
+        },
+        "prevention_steps": {
+            "type": "string",
+            "description": "Concrete action items to prevent similar incidents in the future"
+        }
+    },
+    "required": [
+        "incident_start_time",
+        "incident_duration", 
+        "incident_description",
+        "impacting",
+        "timeline",
+        "reason_for_outage",
+        "resolution",
+        "prevention_steps"
+    ]
+}
