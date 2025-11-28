@@ -3,35 +3,35 @@
     "properties": {
         "incident_start_time": {
             "type": "string",
-            "description": "The exact date and time when the incident started (ISO 8601 format)"
+            "description": "The exact date and time when the incident started in ISO 8601 format. Examples: '2025-01-15T14:30:00Z' or '2025-01-15T09:45:00-05:00'. If exact time is not mentioned, estimate based on meeting transcript timestamps."
         },
         "incident_duration": {
             "type": "string",
-            "description": "How long the incident lasted (e.g., '2 hours 15 minutes')"
+            "description": "Total duration of the incident from start to full resolution. Use natural language format. Examples: '2 hours 15 minutes', '45 minutes', '3 hours', '1 hour 30 minutes'. Calculate from start time to when services were fully restored."
         },
         "incident_description": {
             "type": "string",
-            "description": "Brief 2-3 word description of the incident type"
+            "description": "Brief, clear description of the incident type in 2-4 words. Examples: 'Database Connection Failure', 'Disk Space Full', 'Service Outage', 'Network Connectivity', 'Server Crash'. Focus on the primary technical issue."
         },
         "impacting": {
             "type": "string",
-            "description": "What systems, services, or users were affected (4-5 words max)"
+            "description": "What systems, services, or users were affected, maximum 4-5 words. Examples: 'Customer login system', 'Email processing service', 'Database connectivity', 'Web portal access', 'Payment processing'. Be specific about customer-facing impact."
         },
         "timeline": {
             "type": "string",
-            "description": "Chronological sequence of events during the incident with timestamps"
+            "description": "Chronological sequence of key events during incident response with timestamps. Format each event as 'HH:MM - Description'. Example:\n\n14:30 - Issue detected by monitoring\n14:32 - Team assembled for incident response\n14:35 - Root cause identified as disk space\n15:00 - Database restarted successfully\n15:15 - Services fully restored and verified\n\nInclude detection, investigation, resolution actions, and verification steps."
         },
         "reason_for_outage": {
             "type": "string",
-            "description": "Detailed technical description of what caused the incident"
+            "description": "Detailed technical explanation of what caused the incident. Include root cause analysis. Example: 'PostgreSQL database on server PGEOCT001 crashed due to disk space exhaustion (100% full). The /var partition filled up with log files that were not being properly rotated, preventing the database from writing new transactions.' Be specific about technical details, server names, and underlying causes."
         },
         "resolution": {
             "type": "string",
-            "description": "How the incident was resolved, including root cause analysis"
+            "description": "Detailed description of how the incident was resolved, including all steps taken. Example: 'Team cleared disk space by truncating old log files and removing obsolete databases, freeing 33GB. PostgreSQL service was restarted, and all dependent services (CCAS, proxy-register) were restarted. Full system tests were performed to verify functionality.' Include who did what and verification steps."
         },
         "prevention_steps": {
             "type": "string",
-            "description": "Concrete action items to prevent similar incidents in the future"
+            "description": "Specific, actionable items to prevent similar incidents in the future. Format as numbered or bulleted list. Example:\n\n1. Implement automated log rotation for all database servers\n2. Set up disk space monitoring alerts at 85% capacity\n3. Review and implement database cleanup procedures\n4. Schedule regular capacity planning reviews\n\nFocus on process improvements, monitoring enhancements, and technical changes."
         }
     },
     "required": [
